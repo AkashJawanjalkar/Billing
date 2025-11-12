@@ -1,0 +1,34 @@
+<mvc:View
+    controllerName="project1.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:table="sap.ui.table">
+
+    <Page title="Books List" class="sapUiContentPadding">
+        <VBox fitContainer="true" justifyContent="Center" alignItems="Center">
+            
+            <table:Table
+                id="bookTable"
+                rows="{books>/}"
+                visibleRowCount="8"
+                selectionMode="None"
+                enableColumnReordering="true"
+                enableSelectAll="false"
+                rowHeight="40"
+                width="90%">
+                
+                <!-- Columns will be added dynamically in controller -->
+
+                <table:toolbar>
+                    <Toolbar>
+                        <Title text="Books from HANA DB" />
+                        <ToolbarSpacer />
+                        <Button text="Load Books" press=".onLoadBooks" icon="sap-icon://refresh" />
+                        <Button text="Export" press=".onExportBooks" icon="sap-icon://excel-attachment" />
+                    </Toolbar>
+                </table:toolbar>
+            </table:Table>
+
+        </VBox>
+    </Page>
+</mvc:View>

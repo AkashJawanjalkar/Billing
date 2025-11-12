@@ -1,0 +1,194 @@
+<mvc:View
+    controllerName="project2.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:layout="sap.ui.layout"
+    displayBlock="true"
+>
+    <Page
+        id="page"
+        title="Billing Document Filters"
+        class="sapUiResponsiveContentPadding"
+    >
+        <content>
+            <VBox class="sapUiMediumMargin">
+
+                <!-- FILTER PANEL -->
+                <Panel
+                    headerText="Document"
+                    width="100%"
+                    class="sapUiNoContentPadding sapUiMediumMarginBottom"
+                >
+                    <content>
+                        <layout:Grid
+                            defaultSpan="L6 M6 S12"
+                            hSpacing="1"
+                            vSpacing="1"
+                            width="100%"
+                            class="sapUiSmallMarginTop"
+                        >
+
+                            <!-- LEFT SIDE -->
+                            <layout:content>
+                                <VBox class="sapUiSmallMarginEnd">
+
+                                    <!-- Company Code -->
+                                    <HBox class="sapUiSmallMarginBottom" alignItems="Center">
+                                        <Label text="Company Code:" required="true" design="Bold" width="10rem"/>
+                                        <Input id="companyCodeInput" placeholder="Enter Company Code" width="20rem"/>
+                                    </HBox>
+
+                                    <!-- Billing Doc Type -->
+                                    <HBox class="sapUiSmallMarginBottom" alignItems="Center">
+                                        <Label text="Billing Doc Type:" design="Bold" width="10rem"/>
+                                        <Input id="billingDocTypeInput" placeholder="Enter Billing Doc Type" width="20rem"/>
+                                    </HBox>
+
+                                    <!-- Billing Date -->
+                                    <HBox class="sapUiSmallMarginBottom" alignItems="Center">
+                                        <Label text="Billing Date:" required="true" design="Bold" width="10rem"/>
+                                        <HBox>
+                                            <DatePicker
+                                                id="billingDateSingle"
+                                                visible="false"
+                                                width="12rem"
+                                                displayFormat="yyyy-MM-dd"
+                                                valueFormat="yyyy-MM-dd"
+                                            />
+                                            <DateRangeSelection
+                                                id="billingDateRange"
+                                                visible="true"
+                                                width="14rem"
+                                                delimiter=" - "
+                                                displayFormat="yyyy-MM-dd"
+                                                valueFormat="yyyy-MM-dd"
+                                            />
+                                            <SegmentedButton
+                                                id="billingDateMode"
+                                                selectedKey="range"
+                                                class="sapUiSmallMarginBegin"
+                                                selectionChange=".onBillingDateModeChange"
+                                            >
+                                                <items>
+                                                    <SegmentedButtonItem key="single" text="Single"/>
+                                                    <SegmentedButtonItem key="range" text="Range"/>
+                                                </items>
+                                            </SegmentedButton>
+                                        </HBox>
+                                    </HBox>
+
+                                    <!-- Customer -->
+                                    <HBox class="sapUiSmallMarginBottom" alignItems="Center">
+                                        <Label text="Customer:" design="Bold" width="10rem"/>
+                                        <Input id="customerInput" placeholder="Enter Customer" width="20rem"/>
+                                    </HBox>
+
+                                    <!-- Delivery Number -->
+                                    <HBox class="sapUiSmallMarginBottom" alignItems="Center">
+                                        <Label text="Delivery Number:" design="Bold" width="10rem"/>
+                                        <Input id="deliveryNumberInput" placeholder="Enter Delivery Number" width="20rem"/>
+                                    </HBox>
+
+                                </VBox>
+                            </layout:content>
+
+                            <!-- RIGHT SIDE -->
+                            <layout:content>
+                                <VBox class="sapUiSmallMarginBegin">
+
+                                    <!-- Plant -->
+                                    <HBox class="sapUiSmallMarginBottom" alignItems="Center">
+                                        <Label text="Plant:" required="true" design="Bold" width="10rem"/>
+                                        <Input id="plantInput" placeholder="Enter Plant" width="20rem"/>
+                                    </HBox>
+
+                                    <!-- Billing Document No. -->
+                                    <HBox class="sapUiSmallMarginBottom" alignItems="Center">
+                                        <Label text="Billing Document No.:" design="Bold" width="10rem"/>
+                                        <Input id="billingDocumentNoInput" placeholder="Enter Billing Document No." width="20rem"/>
+                                    </HBox>
+
+                                    <!-- Business Place -->
+                                    <HBox class="sapUiSmallMarginBottom" alignItems="Center">
+                                        <Label text="Business Place:" design="Bold" width="10rem"/>
+                                        <Input id="businessPlaceInput" placeholder="Enter Business Place" width="20rem"/>
+                                    </HBox>
+
+                                    <!-- Delivery Doc Type -->
+                                    <HBox class="sapUiSmallMarginBottom" alignItems="Center">
+                                        <Label text="Delivery Doc Type:" design="Bold" width="10rem"/>
+                                        <Input id="deliveryDocTypeInput" placeholder="Enter Delivery Doc Type" width="20rem"/>
+                                    </HBox>
+
+                                    <!-- Delivery Date -->
+                                    <HBox class="sapUiSmallMarginBottom" alignItems="Center">
+                                        <Label text="Delivery Date:" design="Bold" width="10rem"/>
+                                        <HBox>
+                                            <DatePicker
+                                                id="deliveryDateSingle"
+                                                visible="false"
+                                                width="12rem"
+                                                displayFormat="yyyy-MM-dd"
+                                                valueFormat="yyyy-MM-dd"
+                                            />
+                                            <DateRangeSelection
+                                                id="deliveryDateRange"
+                                                visible="true"
+                                                width="14rem"
+                                                delimiter=" - "
+                                                displayFormat="yyyy-MM-dd"
+                                                valueFormat="yyyy-MM-dd"
+                                            />
+                                            <SegmentedButton
+                                                id="deliveryDateMode"
+                                                selectedKey="range"
+                                                class="sapUiSmallMarginBegin"
+                                                selectionChange=".onDeliveryDateModeChange"
+                                            >
+                                                <items>
+                                                    <SegmentedButtonItem key="single" text="Single"/>
+                                                    <SegmentedButtonItem key="range" text="Range"/>
+                                                </items>
+                                            </SegmentedButton>
+                                        </HBox>
+                                    </HBox>
+
+                                </VBox>
+                            </layout:content>
+                        </layout:Grid>
+                    </content>
+                     <!-- ACTION BUTTONS -->
+                <!-- ACTION BUTTONS -->
+<HBox
+    justifyContent="End"
+    alignItems="Center"
+    class="sapUiMediumMarginBottom sapUiTinyMarginEnd"
+>
+    
+    <Button
+        text="Go"
+        type="Emphasized"
+        icon="sap-icon://search"
+        press=".onGo"
+        width="5rem"
+      
+    />
+    <Button
+        text="Reset"
+        type="Reject"
+        icon="sap-icon://reset"
+        press=".onResetFilters"
+        class="sapUiTinyMarginEnd sapUiSmallMarginBegin"
+         width="5rem"
+         
+    />
+</HBox>
+
+                </Panel>
+
+               
+
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>
